@@ -1,0 +1,7 @@
+:root {
+  --tablet-viewport: 834px;
+  --desktop-viewport: 1200px;
+
+  --font-size-title-mobile: 18px;
+  --font-size-title-desktop: 36px;
+}

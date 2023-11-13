@@ -1,0 +1,57 @@
+.root {
+  background-color: #ccc;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 50px;
+  padding-bottom: 16px;
+  width: 100%;
+}
+
+.title {
+  padding: 0;
+  margin: 0;
+  font-size: var(--font-size-title-mobile);
+
+  @media (min-width: 834px) {
+    font-size: var(--font-size-title-desktop);
+  }
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.link {
+  text-decoration: none;
+  color: #fff;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.activeLink {
+  text-decoration: underline;
+}
+
+.linkText {
+  font-size: 0;
+
+  color: inherit;
+
+  @media (min-width: 834px) {
+    font-size: 16px;
+  }
+}
+
+.icon {
+  @media (min-width: 834px) {
+    display: none;
+  }
+}
