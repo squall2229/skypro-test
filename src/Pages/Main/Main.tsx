@@ -1,6 +1,6 @@
-import { ProductList } from "../ProductList";
+import { ProductList } from "../../components/ProductList";
 import products from "../../data/products.json";
-import { SelectOrder } from "../SelectOrder";
+import { SelectOrder } from "../../components/SelectOrder";
 import { SortProvider } from "../../context/sortProductContext/sortProductContext";
 import styles from "./Main.module.scss";
 

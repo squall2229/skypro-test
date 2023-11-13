@@ -9,7 +9,7 @@ export const ProductCard = memo(
         return (
             <div className={styles.root}>
                 <div className={styles.actions}>
-                    <ProductActions />
+                    <ProductActions id={id} />
                 </div>
                 <picture>
                     <source
