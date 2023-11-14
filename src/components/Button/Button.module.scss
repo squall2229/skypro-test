@@ -1,0 +1,22 @@
+.button {
+    display: inline-flex;
+    padding: 11px 5px 11px 5px;
+    justify-content: center;
+    align-items: center;
+    min-width: 166px;
+    width: 100%;
+    border-radius: 50px;
+    border: 1px solid #000;
+    color: #000;
+    text-align: center;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.dark {
+    color: #fff;
+    background-color: #000;
+}

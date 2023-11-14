@@ -1,3 +1,39 @@
 .root {
     padding-top: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.container {
+    @media (min-width: 1208px) {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.actionsContainer {
+    margin-bottom: 48px;
+
+    @media (min-width: 768px) {
+        margin-bottom: 64px;
+    }
+}
+
+.products {
+    @media (min-width: 1208px) {
+        margin-right: 33px;
+        flex-grow: 1;
+    }
+}
+
+.emptyContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.emptyButton {
+    max-width: 400px;
+    padding-top: 20px;
 }

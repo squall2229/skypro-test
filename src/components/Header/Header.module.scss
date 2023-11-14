@@ -16,7 +16,7 @@
     margin: 0;
     font-size: var(--font-size-title-mobile);
 
-    @media (min-width: 834px) {
+    @media (min-width: 768px) {
         font-size: var(--font-size-title-desktop);
     }
 }
@@ -45,13 +45,13 @@
 
     color: inherit;
 
-    @media (min-width: 834px) {
+    @media (min-width: 768px) {
         font-size: 16px;
     }
 }
 
 .icon {
-    @media (min-width: 834px) {
+    @media (min-width: 768px) {
         display: none;
     }
 }
@@ -63,7 +63,7 @@
 .modalContainer {
     display: none;
 
-    @media (min-width: 834px) {
+    @media (min-width: 768px) {
         position: absolute;
         display: block;
         right: 0;

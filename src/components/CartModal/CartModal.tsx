@@ -10,7 +10,7 @@ export const CartModal = () => {
 
     const products = state ? transformProductDataByState(state) : [];
 
-    return (
+    return products.length ? (
         <div className={styles.root}>
             <ul>
                 {products.map((product) => (
@@ -20,5 +20,5 @@ export const CartModal = () => {
                 ))}
             </ul>
         </div>
-    );
+    ) : null;
 };

@@ -8,3 +8,13 @@ export const transformProductDataByState = (state: RootState) => {
           )
         : [];
 };
+
+export const getTotal = (state: RootState) => {
+    const products = transformProductDataByState(state);
+
+    return products.reduce((acc, current) => {
+        const totalItem = state[current.id] * current.price;
+
+        return (acc += totalItem);
+    }, 0);
+};

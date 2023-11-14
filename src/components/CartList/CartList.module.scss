@@ -10,4 +10,8 @@
     &:last-child {
         border-bottom: none;
     }
+
+    @media (min-width: 1208px) {
+        padding-bottom: 50px;
+    }
 }
