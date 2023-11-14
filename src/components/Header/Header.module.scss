@@ -1,57 +1,73 @@
 .root {
-  background-color: #ccc;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 50px;
-  padding-bottom: 16px;
-  width: 100%;
+    background-color: #ccc;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 50px;
+    padding-bottom: 16px;
+    width: 100%;
 }
 
 .title {
-  padding: 0;
-  margin: 0;
-  font-size: var(--font-size-title-mobile);
+    padding: 0;
+    margin: 0;
+    font-size: var(--font-size-title-mobile);
 
-  @media (min-width: 834px) {
-    font-size: var(--font-size-title-desktop);
-  }
+    @media (min-width: 834px) {
+        font-size: var(--font-size-title-desktop);
+    }
 }
 
 .navigation {
-  display: flex;
-  align-items: center;
-  gap: 32px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
 }
 
 .link {
-  text-decoration: none;
-  color: #fff;
+    text-decoration: none;
+    color: #fff;
 
-  &:hover {
-    text-decoration: underline;
-  }
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .activeLink {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .linkText {
-  font-size: 0;
+    font-size: 0;
 
-  color: inherit;
+    color: inherit;
 
-  @media (min-width: 834px) {
-    font-size: 16px;
-  }
+    @media (min-width: 834px) {
+        font-size: 16px;
+    }
 }
 
 .icon {
-  @media (min-width: 834px) {
+    @media (min-width: 834px) {
+        display: none;
+    }
+}
+
+.navigationContainer {
+    position: relative;
+}
+
+.modalContainer {
     display: none;
-  }
+
+    @media (min-width: 834px) {
+        position: absolute;
+        display: block;
+        right: 0;
+        top: 18px;
+        z-index: 1;
+    }
 }

@@ -3,13 +3,17 @@ import IconLike from "../../assets/icon-like.svg?react";
 import IconBuy from "../../assets/icon-buy.svg?react";
 import styles from "./ProductActions.module.scss";
 import { ProductActionsProps } from "./ProductActions.types";
-import { addItemToCart } from "../../actions/addItemToCart";
+// import { addItemToCart } from "../../actions/addItemToCart";
 import "react-toastify/dist/ReactToastify.css";
 import { createPortal } from "react-dom";
+import { useCartContext } from "../../context/cartContext";
 
 export const ProductActions = ({ id }: ProductActionsProps) => {
+    const { addCount } = useCartContext();
+
     const handleClickAddItem = () => {
-        addItemToCart(id);
+        // addItemToCart(id);
+        addCount(id);
         toast("Товар добавлен в корзину!");
     };
 

@@ -7,7 +7,7 @@ export type RootState = {
 const cartStorage = new Storage("cart");
 
 export const getItemsFromCart = (): RootState => {
-    return cartStorage.getItem();
+    return cartStorage.getItem() || {};
 };
 
 export const addItemToCart = (id: string) => {

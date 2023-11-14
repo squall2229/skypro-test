@@ -1,13 +1,15 @@
 import { useCartContext } from "../../context/cartContext";
 import { CartList } from "../CartList";
+import styles from "./CartForm.module.scss";
+import { transformProductDataByState } from "../../context/cartContext";
 
 export const CartForm = () => {
-    const { getItems } = useCartContext();
+    const { state } = useCartContext();
 
-    const products = getItems();
+    const products = state ? transformProductDataByState(state) : [];
 
     return (
-        <div>
+        <div className={styles.root}>
             <CartList products={products} />
         </div>
     );

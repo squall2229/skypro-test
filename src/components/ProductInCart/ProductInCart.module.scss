@@ -1,0 +1,32 @@
+.root {
+    margin-right: 16px;
+    margin-left: 16px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @media (min-width: 834px) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.content {
+    padding-right: 25px;
+}
+
+.actions {
+    margin-top: 13px;
+    gap: 30px;
+    display: flex;
+}
+
+.button {
+    border: none;
+    text-decoration: underline;
+    background-color: transparent;
+    font-family: inherit;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+}

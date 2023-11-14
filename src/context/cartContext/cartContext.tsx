@@ -1,17 +1,8 @@
-import {
-    FC,
-    PropsWithChildren,
-    createContext,
-    useEffect,
-    useState,
-} from "react";
-import { RootState, getItemsFromCart } from "../../actions/addItemToCart";
-import productsData from "../../data/products.json";
-import { ProductProps } from "../../components/ProductCard/ProductCard.types";
+import { FC, PropsWithChildren, createContext, useState } from "react";
+import { RootState } from "../../actions/addItemToCart";
 
 export type CartContextProps = {
     state: RootState | null;
-    getItems: () => ProductProps[];
     addCount: (id: string) => void;
     removeCount: (id: string) => void;
     removeItem: (id: string) => void;
@@ -20,7 +11,6 @@ export type CartContextProps = {
 
 export const CartContext = createContext<CartContextProps>({
     state: {},
-    getItems: () => [],
     addCount: () => {},
     removeCount: () => {},
     removeItem: () => {},
@@ -28,33 +18,39 @@ export const CartContext = createContext<CartContextProps>({
 });
 
 export const CartProvider: FC<PropsWithChildren> = ({ children }) => {
-    const [state, setState] = useState<RootState>(() => getItemsFromCart());
+    const [state, setState] = useState<RootState>({});
 
-    const getItems = () => {
-        return Object.keys(state).map((key) => {
-            const item = productsData.find((i) => i.id === key);
+    const addCount = (id: string) => {
+        setState((prevState) => {
+            const newState = { ...prevState };
 
-            if (item) {
+            if (newState[id]) {
                 return {
-                    ...item,
-                    count: state[key],
+                    ...newState,
+                    [id]: prevState[id] + 1,
                 };
             }
+
+            return {
+                ...newState,
+                [id]: 1,
+            };
         });
     };
 
-    const addCount = (id: string) => {
-        setState((prevState) => ({
-            ...prevState,
-            [prevState[id]]: prevState[id] ? (prevState[id] = +1) : 1,
-        }));
-    };
-
     const removeCount = (id: string) => {
-        setState((prevState) => ({
-            ...prevState,
-            [prevState[id]]: prevState[id] - 1,
-        }));
+        setState((prevState) => {
+            const newState = { ...prevState };
+
+            if (newState[id]) {
+                return {
+                    ...newState,
+                    [id]: prevState[id] - 1,
+                };
+            }
+
+            return newState;
+        });
     };
 
     const removeItem = (id: string) => {
@@ -71,17 +67,10 @@ export const CartProvider: FC<PropsWithChildren> = ({ children }) => {
         setState({});
     };
 
-    useEffect(() => {
-        setState(state);
-    }, [state]);
-
     return (
         <CartContext.Provider
             value={{
                 state,
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                getItems,
                 addCount,
                 removeCount,
                 removeItem,

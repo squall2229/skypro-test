@@ -2,15 +2,32 @@ import { ProductProps } from "./ProductCard.types";
 import styles from "./ProductCard.module.scss";
 import { toCurrency } from "../../utils/tuCurrency";
 import { ProductActions } from "../ProductActions";
-import { memo } from "react";
+import { ReactNode, memo } from "react";
+import cn from "classnames";
 
 export const ProductCard = memo(
-    ({ id, title, description, price }: ProductProps) => {
+    ({
+        id,
+        title,
+        description,
+        price,
+        isCart = false,
+        renderActions,
+    }: ProductProps & {
+        isCart?: boolean;
+        renderActions?: () => ReactNode;
+    }) => {
         return (
-            <div className={styles.root}>
-                <div className={styles.actions}>
-                    <ProductActions id={id} />
-                </div>
+            <div
+                className={cn(styles.root, {
+                    [styles.rootIsCart]: isCart,
+                })}
+            >
+                {!isCart && (
+                    <div className={styles.actions}>
+                        <ProductActions id={id} />
+                    </div>
+                )}
                 <picture>
                     <source
                         srcSet={`/images/products/product-${id}.webp`}
@@ -25,13 +42,26 @@ export const ProductCard = memo(
                         height={250}
                         src={`/images/products/product-${id}.jpg`}
                         alt={title}
-                        className={styles.img}
+                        className={cn(styles.img, {
+                            [styles.imgIsCart]: isCart,
+                        })}
                     />
                 </picture>
-                <div className={styles.content}>
+                <div
+                    className={cn(styles.content, {
+                        [styles.contentIsCart]: isCart,
+                    })}
+                >
                     <h2 className={styles.title}>{title}</h2>
                     <p className={styles.description}>{description}</p>
-                    <span className={styles.price}>{toCurrency(price)}</span>
+                    <span
+                        className={cn(styles.price, {
+                            [styles.priceIsCart]: isCart,
+                        })}
+                    >
+                        {toCurrency(price)}
+                    </span>
+                    {renderActions && renderActions()}
                 </div>
             </div>
         );

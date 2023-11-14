@@ -1,0 +1,14 @@
+.root {
+    width: 554px;
+    background-color: #fff;
+    padding: 32px;
+    border: 1px solid #000;
+}
+
+.item {
+    margin-bottom: 32px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
