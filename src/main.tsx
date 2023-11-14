@@ -6,22 +6,27 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Main } from "./Pages/Main";
 import { Cart } from "./Pages/Cart";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+    [
+        {
+            path: "/",
+            element: <App />,
+            children: [
+                {
+                    path: "/",
+                    element: <Main />,
+                },
+                {
+                    path: "/card",
+                    element: <Cart />,
+                },
+            ],
+        },
+    ],
     {
-        path: "/",
-        element: <App />,
-        children: [
-            {
-                path: "/",
-                element: <Main />,
-            },
-            {
-                path: "/card",
-                element: <Cart />,
-            },
-        ],
+        basename: "/skypro-test/",
     },
-]);
+);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>

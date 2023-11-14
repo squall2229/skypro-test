@@ -17,6 +17,7 @@ export const ProductCard = memo(
         isCart?: boolean;
         renderActions?: () => ReactNode;
     }) => {
+        console.log(import.meta.url);
         return (
             <div
                 className={cn(styles.root, {
@@ -30,17 +31,17 @@ export const ProductCard = memo(
                 )}
                 <picture>
                     <source
-                        srcSet={`/images/products/product-${id}.webp`}
+                        srcSet={`images/products/product-${id}.webp`}
                         type="image/webp"
                     />
                     <source
-                        srcSet={`/images/products/product-${id}.jpg`}
+                        srcSet={`images/products/product-${id}.jpg`}
                         type="image/jpeg"
                     />
                     <img
                         width={379}
                         height={250}
-                        src={`/images/products/product-${id}.jpg`}
+                        src={`images/products/product-${id}.jpg`}
                         alt={title}
                         className={cn(styles.img, {
                             [styles.imgIsCart]: isCart,
